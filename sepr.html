@@ -1,0 +1,50 @@
+<html>
+	<body>
+		<button onclick="touch()">+...</button>
+		<button onclick="rm()">-...</button>
+		<div id="in">
+			<span id="in2"><input type="text"></input>x^2+</span>
+			<span id="in1"><input type="text"></input>x+</span>
+			<span id="in0"><input type="text"></input></span>
+		</div>
+		<button onclick="main()">Factorize!</button>
+		<span id="res"></span>
+	</body>
+	<script src="sepr.js"></script>
+	<script>
+		var ins = [];
+		window.onload = function(){
+			var children = document.getElementById('in').children;
+			for(var i=children.length-1; i>=0; --i){
+				ins.push(children[i].id);
+			}
+		}
+		function touch(){
+			var IN = document.getElementById('in');
+			var n = ins.length;
+			// IN.innerHTML = '<span id="in' + n + '"><input type="text"></input>x^' + n + '+</span>' + IN.innerHTML;
+			var child = document.createElement('span');
+			child.id = 'in' + n;
+			child.innerHTML = '<input type="text"></input>x^' + n + '+';
+			IN.insertBefore(child, document.getElementById('in' + (n-1)));
+			ins.push('in'+n);
+		}
+		function rm(){
+			if(ins.length <= 3) return;
+			// var child = ins[ins.length-1];
+			var child = document.getElementById('in'+(ins.length-1));
+			child.parentNode.removeChild(child);
+			ins = ins.slice(0, ins.length-1);
+		}
+		function main(){
+			var t = [];
+			for(var j of ins){
+				var v = document.getElementById(j).children[0].value;
+				v = v ? parseInt(v) : 0;
+				t.unshift(v);
+			}
+			console.log(t)
+			document.getElementById('res').innerHTML = '==> ' + seprMain(t);
+		}
+	</script>
+</html>
