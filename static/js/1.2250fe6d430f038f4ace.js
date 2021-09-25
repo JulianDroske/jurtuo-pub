@@ -1,0 +1,2 @@
+webpackJsonp([1],{l9SV:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var l={render:function(){var e=this.$createElement;return(this._self._c||e)("div",{staticStyle:{width:"100%",height:"100%"}})},staticRenderFns:[]},i=n("VU/8")({name:"Settings"},l,!1,null,null,null);t.default=i.exports}});
+//# sourceMappingURL=1.2250fe6d430f038f4ace.js.map
